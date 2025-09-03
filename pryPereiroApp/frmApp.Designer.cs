@@ -34,13 +34,13 @@
             lblPrecio = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            btnComprar = new Button();
+            btnRegistrar = new Button();
             btnSalir = new Button();
             nudCantidad = new NumericUpDown();
             fileSystemWatcher1 = new FileSystemWatcher();
-            txtPrecioUnitario = new TextBox();
-            txtFecha = new TextBox();
-            txtProducto = new TextBox();
+            cmbProducto = new ComboBox();
+            dtpFecha = new DateTimePicker();
+            mtbPrecioUnitario = new MaskedTextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
@@ -52,7 +52,7 @@
             lblFecha.AutoSize = true;
             lblFecha.BorderStyle = BorderStyle.Fixed3D;
             lblFecha.Font = new Font("Segoe UI", 15F);
-            lblFecha.Location = new Point(15, 56);
+            lblFecha.Location = new Point(12, 55);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(64, 30);
             lblFecha.TabIndex = 0;
@@ -64,7 +64,7 @@
             lblProducto.AutoSize = true;
             lblProducto.BorderStyle = BorderStyle.Fixed3D;
             lblProducto.Font = new Font("Segoe UI", 15F);
-            lblProducto.Location = new Point(15, 16);
+            lblProducto.Location = new Point(12, 15);
             lblProducto.Name = "lblProducto";
             lblProducto.Size = new Size(95, 30);
             lblProducto.TabIndex = 1;
@@ -75,7 +75,7 @@
             lblCantidad.AutoSize = true;
             lblCantidad.BorderStyle = BorderStyle.Fixed3D;
             lblCantidad.Font = new Font("Segoe UI", 15F);
-            lblCantidad.Location = new Point(15, 98);
+            lblCantidad.Location = new Point(12, 97);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(93, 30);
             lblCantidad.TabIndex = 2;
@@ -86,7 +86,7 @@
             lblPrecio.AutoSize = true;
             lblPrecio.BorderStyle = BorderStyle.Fixed3D;
             lblPrecio.Font = new Font("Segoe UI", 15F);
-            lblPrecio.Location = new Point(15, 143);
+            lblPrecio.Location = new Point(12, 142);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(144, 30);
             lblPrecio.TabIndex = 3;
@@ -95,9 +95,9 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
-            panel1.Controls.Add(txtProducto);
-            panel1.Controls.Add(txtFecha);
-            panel1.Controls.Add(txtPrecioUnitario);
+            panel1.Controls.Add(mtbPrecioUnitario);
+            panel1.Controls.Add(dtpFecha);
+            panel1.Controls.Add(cmbProducto);
             panel1.Controls.Add(nudCantidad);
             panel1.Controls.Add(lblFecha);
             panel1.Controls.Add(lblProducto);
@@ -105,32 +105,32 @@
             panel1.Controls.Add(lblCantidad);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(391, 196);
+            panel1.Size = new Size(316, 196);
             panel1.TabIndex = 5;
             panel1.Paint += this.panel1_Paint;
             // 
             // panel2
             // 
             panel2.Controls.Add(btnSalir);
-            panel2.Controls.Add(btnComprar);
+            panel2.Controls.Add(btnRegistrar);
             panel2.Location = new Point(12, 214);
             panel2.Name = "panel2";
-            panel2.Size = new Size(391, 100);
+            panel2.Size = new Size(316, 100);
             panel2.TabIndex = 6;
             // 
-            // btnComprar
+            // btnRegistrar
             // 
-            btnComprar.Location = new Point(104, 39);
-            btnComprar.Name = "btnComprar";
-            btnComprar.Size = new Size(75, 23);
-            btnComprar.TabIndex = 0;
-            btnComprar.Text = "Comprar";
-            btnComprar.UseVisualStyleBackColor = true;
-            btnComprar.Click += this.button1_Click;
+            btnRegistrar.Location = new Point(69, 38);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(75, 23);
+            btnRegistrar.TabIndex = 0;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += this.button1_Click;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(197, 39);
+            btnSalir.Location = new Point(172, 38);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 1;
@@ -140,9 +140,9 @@
             // 
             // nudCantidad
             // 
-            nudCantidad.Location = new Point(257, 98);
+            nudCantidad.Location = new Point(231, 97);
             nudCantidad.Name = "nudCantidad";
-            nudCantidad.Size = new Size(120, 23);
+            nudCantidad.Size = new Size(59, 23);
             nudCantidad.TabIndex = 4;
             nudCantidad.ValueChanged += this.numericUpDown1_ValueChanged;
             // 
@@ -151,38 +151,44 @@
             fileSystemWatcher1.EnableRaisingEvents = true;
             fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // txtPrecioUnitario
+            // cmbProducto
             // 
-            txtPrecioUnitario.Location = new Point(316, 147);
-            txtPrecioUnitario.Name = "txtPrecioUnitario";
-            txtPrecioUnitario.Size = new Size(61, 23);
-            txtPrecioUnitario.TabIndex = 5;
-            txtPrecioUnitario.TextChanged += this.textBox1_TextChanged;
+            cmbProducto.FormattingEnabled = true;
+            cmbProducto.Location = new Point(172, 15);
+            cmbProducto.Name = "cmbProducto";
+            cmbProducto.Size = new Size(118, 23);
+            cmbProducto.TabIndex = 5;
             // 
-            // txtFecha
+            // dtpFecha
             // 
-            txtFecha.Location = new Point(257, 63);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(120, 23);
-            txtFecha.TabIndex = 6;
+            dtpFecha.Location = new Point(172, 55);
+            dtpFecha.Name = "dtpFecha";
+            dtpFecha.Size = new Size(118, 23);
+            dtpFecha.TabIndex = 6;
+            dtpFecha.ValueChanged += this.dateTimePicker1_ValueChanged;
             // 
-            // txtProducto
+            // mtbPrecioUnitario
             // 
-            txtProducto.Location = new Point(257, 23);
-            txtProducto.Name = "txtProducto";
-            txtProducto.Size = new Size(120, 23);
-            txtProducto.TabIndex = 7;
-            txtProducto.TextChanged += this.textBox3_TextChanged;
+            mtbPrecioUnitario.Location = new Point(231, 142);
+            mtbPrecioUnitario.Mask = "00000";
+            mtbPrecioUnitario.Name = "mtbPrecioUnitario";
+            mtbPrecioUnitario.Size = new Size(59, 23);
+            mtbPrecioUnitario.TabIndex = 7;
+            mtbPrecioUnitario.MaskInputRejected += this.maskedTextBox1_MaskInputRejected;
             // 
             // frmRegistroCompras
             // 
+            AcceptButton = btnRegistrar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(415, 326);
+            CancelButton = btnSalir;
+            ClientSize = new Size(339, 326);
             ControlBox = false;
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "frmRegistroCompras";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Registro Ventas";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -201,10 +207,10 @@
         private NumericUpDown nudCantidad;
         private Panel panel2;
         private Button btnSalir;
-        private Button btnComprar;
+        private Button btnRegistrar;
         private FileSystemWatcher fileSystemWatcher1;
-        private TextBox txtProducto;
-        private TextBox txtFecha;
-        private TextBox txtPrecioUnitario;
+        private DateTimePicker dtpFecha;
+        private ComboBox cmbProducto;
+        private MaskedTextBox mtbPrecioUnitario;
     }
 }
