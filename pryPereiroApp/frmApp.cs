@@ -12,17 +12,27 @@ namespace pryPereiroApp
             this.Close();
         }
 
+        DateTime vFecha;
+        string vProducto;
+        int vCantidad;
+        int vPrecioUnitario;
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-          
-          
+
+            vFecha = dtpFecha.Value;
+            vCantidad = Convert.ToInt32(nudCantidad);
+            vPrecioUnitario = Convert.ToInt32(mtbPrecioUnitario);
+            vProducto = txtProducto.Text;
+
+            lblResultado.Text = vCantidad.ToString() + " - " + vPrecioUnitario.ToString() + " - " + vFecha.ToString() + " - " + vProducto.ToString();
         }
 
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
             if (nudCantidad.Text != "")
             {
-                mtbPrecioUnitario.Enabled = true; 
+                mtbPrecioUnitario.Enabled = true;
             }
             else
             {
@@ -42,7 +52,7 @@ namespace pryPereiroApp
 
         private void cmbProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void lblFecha_Click(object sender, EventArgs e)
@@ -60,6 +70,26 @@ namespace pryPereiroApp
             {
                 nudCantidad.Enabled = false;
             }
+        }
+
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void lblResultado_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+        }
+
+        private void mtbPrecioUnitario_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

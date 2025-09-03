@@ -40,9 +40,12 @@
             panel2 = new Panel();
             btnSalir = new Button();
             btnRegistrar = new Button();
+            panel3 = new Panel();
+            lblResultado = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // lblFecha
@@ -118,10 +121,12 @@
             // 
             mtbPrecioUnitario.Enabled = false;
             mtbPrecioUnitario.Location = new Point(231, 142);
-            mtbPrecioUnitario.Mask = "00000";
+            mtbPrecioUnitario.Mask = "000";
             mtbPrecioUnitario.Name = "mtbPrecioUnitario";
             mtbPrecioUnitario.Size = new Size(59, 23);
             mtbPrecioUnitario.TabIndex = 7;
+            mtbPrecioUnitario.ValidatingType = typeof(int);
+            mtbPrecioUnitario.MaskInputRejected += mtbPrecioUnitario_MaskInputRejected;
             // 
             // dtpFecha
             // 
@@ -129,6 +134,7 @@
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(118, 23);
             dtpFecha.TabIndex = 6;
+            dtpFecha.ValueChanged += dtpFecha_ValueChanged;
             // 
             // nudCantidad
             // 
@@ -145,12 +151,12 @@
             panel2.Controls.Add(btnRegistrar);
             panel2.Location = new Point(12, 214);
             panel2.Name = "panel2";
-            panel2.Size = new Size(316, 100);
+            panel2.Size = new Size(316, 78);
             panel2.TabIndex = 6;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(172, 38);
+            btnSalir.Location = new Point(172, 26);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 1;
@@ -160,7 +166,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(69, 38);
+            btnRegistrar.Location = new Point(69, 26);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(75, 23);
             btnRegistrar.TabIndex = 0;
@@ -168,14 +174,34 @@
             btnRegistrar.UseVisualStyleBackColor = true;
             btnRegistrar.Click += btnRegistrar_Click;
             // 
+            // panel3
+            // 
+            panel3.Controls.Add(lblResultado);
+            panel3.Location = new Point(12, 300);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(316, 78);
+            panel3.TabIndex = 7;
+            // 
+            // lblResultado
+            // 
+            lblResultado.AutoSize = true;
+            lblResultado.Font = new Font("Segoe UI", 30F);
+            lblResultado.Location = new Point(23, 11);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(276, 54);
+            lblResultado.TabIndex = 0;
+            lblResultado.Text = "                       \r\n";
+            lblResultado.Click += lblResultado_Click;
+            // 
             // frmRegistroCompras
             // 
             AcceptButton = btnRegistrar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnSalir;
-            ClientSize = new Size(339, 326);
+            ClientSize = new Size(339, 390);
             ControlBox = false;
+            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "frmRegistroCompras";
@@ -185,6 +211,8 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -202,5 +230,7 @@
         private DateTimePicker dtpFecha;
         private MaskedTextBox mtbPrecioUnitario;
         private TextBox txtProducto;
+        private Panel panel3;
+        private Label lblResultado;
     }
 }
