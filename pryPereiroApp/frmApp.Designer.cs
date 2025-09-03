@@ -33,18 +33,16 @@
             lblCantidad = new Label();
             lblPrecio = new Label();
             panel1 = new Panel();
+            txtProducto = new TextBox();
             mtbPrecioUnitario = new MaskedTextBox();
             dtpFecha = new DateTimePicker();
-            cmbProducto = new ComboBox();
             nudCantidad = new NumericUpDown();
             panel2 = new Panel();
             btnSalir = new Button();
             btnRegistrar = new Button();
-            fileSystemWatcher1 = new FileSystemWatcher();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
             // 
             // lblFecha
@@ -52,18 +50,19 @@
             lblFecha.AutoSize = true;
             lblFecha.BorderStyle = BorderStyle.Fixed3D;
             lblFecha.Font = new Font("Segoe UI", 15F);
-            lblFecha.Location = new Point(12, 55);
+            lblFecha.Location = new Point(12, 13);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(64, 30);
             lblFecha.TabIndex = 0;
             lblFecha.Text = "Fecha";
+            lblFecha.Click += lblFecha_Click;
             // 
             // lblProducto
             // 
             lblProducto.AutoSize = true;
             lblProducto.BorderStyle = BorderStyle.Fixed3D;
             lblProducto.Font = new Font("Segoe UI", 15F);
-            lblProducto.Location = new Point(12, 15);
+            lblProducto.Location = new Point(12, 54);
             lblProducto.Name = "lblProducto";
             lblProducto.Size = new Size(95, 30);
             lblProducto.TabIndex = 1;
@@ -94,9 +93,9 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(txtProducto);
             panel1.Controls.Add(mtbPrecioUnitario);
             panel1.Controls.Add(dtpFecha);
-            panel1.Controls.Add(cmbProducto);
             panel1.Controls.Add(nudCantidad);
             panel1.Controls.Add(lblFecha);
             panel1.Controls.Add(lblProducto);
@@ -107,8 +106,17 @@
             panel1.Size = new Size(316, 196);
             panel1.TabIndex = 5;
             // 
+            // txtProducto
+            // 
+            txtProducto.Location = new Point(172, 54);
+            txtProducto.Name = "txtProducto";
+            txtProducto.Size = new Size(118, 23);
+            txtProducto.TabIndex = 8;
+            txtProducto.TextChanged += txtProducto_TextChanged;
+            // 
             // mtbPrecioUnitario
             // 
+            mtbPrecioUnitario.Enabled = false;
             mtbPrecioUnitario.Location = new Point(231, 142);
             mtbPrecioUnitario.Mask = "00000";
             mtbPrecioUnitario.Name = "mtbPrecioUnitario";
@@ -117,25 +125,19 @@
             // 
             // dtpFecha
             // 
-            dtpFecha.Location = new Point(172, 55);
+            dtpFecha.Location = new Point(172, 18);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(118, 23);
             dtpFecha.TabIndex = 6;
             // 
-            // cmbProducto
-            // 
-            cmbProducto.FormattingEnabled = true;
-            cmbProducto.Location = new Point(172, 15);
-            cmbProducto.Name = "cmbProducto";
-            cmbProducto.Size = new Size(118, 23);
-            cmbProducto.TabIndex = 5;
-            // 
             // nudCantidad
             // 
+            nudCantidad.Enabled = false;
             nudCantidad.Location = new Point(231, 97);
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(59, 23);
             nudCantidad.TabIndex = 4;
+            nudCantidad.ValueChanged += nudCantidad_ValueChanged;
             // 
             // panel2
             // 
@@ -164,11 +166,7 @@
             btnRegistrar.TabIndex = 0;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = true;
-            // 
-            // fileSystemWatcher1
-            // 
-            fileSystemWatcher1.EnableRaisingEvents = true;
-            fileSystemWatcher1.SynchronizingObject = this;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // frmRegistroCompras
             // 
@@ -187,7 +185,6 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             ResumeLayout(false);
         }
 
@@ -202,9 +199,8 @@
         private Panel panel2;
         private Button btnSalir;
         private Button btnRegistrar;
-        private FileSystemWatcher fileSystemWatcher1;
         private DateTimePicker dtpFecha;
-        private ComboBox cmbProducto;
         private MaskedTextBox mtbPrecioUnitario;
+        private TextBox txtProducto;
     }
 }
