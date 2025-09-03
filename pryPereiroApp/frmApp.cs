@@ -1,8 +1,8 @@
 namespace pryPereiroApp
 {
-    public partial class frmApp : Form
+    public partial class frmRegistroCompras : Form
     {
-        public frmApp()
+        public frmRegistroCompras()
         {
             InitializeComponent();
         }
