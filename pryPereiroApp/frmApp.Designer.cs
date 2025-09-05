@@ -185,10 +185,10 @@
             // lblResultado
             // 
             lblResultado.AutoSize = true;
-            lblResultado.Font = new Font("Segoe UI", 30F);
-            lblResultado.Location = new Point(23, 11);
+            lblResultado.Font = new Font("Segoe UI", 14F);
+            lblResultado.Location = new Point(3, 9);
             lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(276, 54);
+            lblResultado.Size = new Size(127, 25);
             lblResultado.TabIndex = 0;
             lblResultado.Text = "                       \r\n";
             lblResultado.Click += lblResultado_Click;
