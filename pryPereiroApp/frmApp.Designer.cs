@@ -41,7 +41,10 @@
             btnSalir = new Button();
             btnRegistrar = new Button();
             panel3 = new Panel();
-            lblResultado = new Label();
+            lblResultadoFecha = new Label();
+            lblResultadoProducto = new Label();
+            lblResultadoCantidad = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             panel2.SuspendLayout();
@@ -176,22 +179,55 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(lblResultado);
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(lblResultadoCantidad);
+            panel3.Controls.Add(lblResultadoProducto);
+            panel3.Controls.Add(lblResultadoFecha);
             panel3.Location = new Point(12, 300);
             panel3.Name = "panel3";
-            panel3.Size = new Size(316, 78);
+            panel3.Size = new Size(316, 189);
             panel3.TabIndex = 7;
             // 
-            // lblResultado
+            // lblResultadoFecha
             // 
-            lblResultado.AutoSize = true;
-            lblResultado.Font = new Font("Segoe UI", 14F);
-            lblResultado.Location = new Point(3, 9);
-            lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(127, 25);
-            lblResultado.TabIndex = 0;
-            lblResultado.Text = "                       \r\n";
-            lblResultado.Click += lblResultado_Click;
+            lblResultadoFecha.AutoSize = true;
+            lblResultadoFecha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblResultadoFecha.Location = new Point(12, 18);
+            lblResultadoFecha.Name = "lblResultadoFecha";
+            lblResultadoFecha.Size = new Size(139, 20);
+            lblResultadoFecha.TabIndex = 0;
+            lblResultadoFecha.Text = "&Fecha:               \r\n";
+            lblResultadoFecha.Click += lblResultado_Click;
+            // 
+            // lblResultadoProducto
+            // 
+            lblResultadoProducto.AutoSize = true;
+            lblResultadoProducto.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblResultadoProducto.Location = new Point(12, 53);
+            lblResultadoProducto.Name = "lblResultadoProducto";
+            lblResultadoProducto.Size = new Size(86, 20);
+            lblResultadoProducto.TabIndex = 1;
+            lblResultadoProducto.Text = "&Producto:";
+            // 
+            // lblResultadoCantidad
+            // 
+            lblResultadoCantidad.AutoSize = true;
+            lblResultadoCantidad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblResultadoCantidad.Location = new Point(12, 87);
+            lblResultadoCantidad.Name = "lblResultadoCantidad";
+            lblResultadoCantidad.Size = new Size(86, 20);
+            lblResultadoCantidad.TabIndex = 2;
+            lblResultadoCantidad.Text = "&Cantidad:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label3.Location = new Point(12, 122);
+            label3.Name = "label3";
+            label3.Size = new Size(132, 20);
+            label3.TabIndex = 3;
+            label3.Text = "&Precio Unitario:";
             // 
             // frmRegistroCompras
             // 
@@ -199,7 +235,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnSalir;
-            ClientSize = new Size(339, 390);
+            ClientSize = new Size(339, 501);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -231,6 +267,9 @@
         private MaskedTextBox mtbPrecioUnitario;
         private TextBox txtProducto;
         private Panel panel3;
-        private Label lblResultado;
+        private Label lblResultadoFecha;
+        private Label label3;
+        private Label lblResultadoCantidad;
+        private Label lblResultadoProducto;
     }
 }
