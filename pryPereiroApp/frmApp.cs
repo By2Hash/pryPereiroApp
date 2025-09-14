@@ -25,7 +25,8 @@ namespace pryPereiroApp
             vPrecioUnitario = Convert.ToInt32(mtbPrecioUnitario.Text);
             vProducto = txtProducto.Text;
 
-            lblResultadoFecha.Text = vCantidad.ToString() + " - " + vPrecioUnitario.ToString() + " - " + vFecha.ToString() + " - " + vProducto.ToString();
+            lblResultado.Text = vFecha.ToString() + " - " + vProducto.ToString() + " - " + vCantidad.ToString() + " - " + vCantidad.ToString();
+            //lblResultado.Text = vCantidad.ToString() + " - " + vPrecioUnitario.ToString() + " - " + vFecha.ToString() + " - " + vProducto.ToString();
         }
 
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
