@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroCompras));
             lblFecha = new Label();
             lblProducto = new Label();
             lblCantidad = new Label();
             lblPrecio = new Label();
             panel1 = new Panel();
+            txtPrecioUnitario = new TextBox();
             txtProducto = new TextBox();
-            mtbPrecioUnitario = new MaskedTextBox();
             dtpFecha = new DateTimePicker();
             nudCantidad = new NumericUpDown();
             panel2 = new Panel();
@@ -53,20 +54,19 @@
             lblFecha.AutoSize = true;
             lblFecha.BorderStyle = BorderStyle.Fixed3D;
             lblFecha.Font = new Font("Segoe UI", 15F);
-            lblFecha.Location = new Point(17, 22);
+            lblFecha.Location = new Point(17, 90);
             lblFecha.Margin = new Padding(4, 0, 4, 0);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(97, 43);
             lblFecha.TabIndex = 0;
             lblFecha.Text = "Fecha";
-            lblFecha.Click += lblFecha_Click;
             // 
             // lblProducto
             // 
             lblProducto.AutoSize = true;
             lblProducto.BorderStyle = BorderStyle.Fixed3D;
             lblProducto.Font = new Font("Segoe UI", 15F);
-            lblProducto.Location = new Point(17, 90);
+            lblProducto.Location = new Point(17, 18);
             lblProducto.Margin = new Padding(4, 0, 4, 0);
             lblProducto.Name = "lblProducto";
             lblProducto.Size = new Size(142, 43);
@@ -90,7 +90,7 @@
             lblPrecio.AutoSize = true;
             lblPrecio.BorderStyle = BorderStyle.Fixed3D;
             lblPrecio.Font = new Font("Segoe UI", 15F);
-            lblPrecio.Location = new Point(17, 237);
+            lblPrecio.Location = new Point(17, 227);
             lblPrecio.Margin = new Padding(4, 0, 4, 0);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(215, 43);
@@ -100,8 +100,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(txtPrecioUnitario);
             panel1.Controls.Add(txtProducto);
-            panel1.Controls.Add(mtbPrecioUnitario);
             panel1.Controls.Add(dtpFecha);
             panel1.Controls.Add(nudCantidad);
             panel1.Controls.Add(lblFecha);
@@ -111,33 +111,32 @@
             panel1.Location = new Point(17, 20);
             panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(451, 327);
+            panel1.Size = new Size(631, 327);
             panel1.TabIndex = 5;
+            // 
+            // txtPrecioUnitario
+            // 
+            txtPrecioUnitario.Location = new Point(482, 237);
+            txtPrecioUnitario.MaxLength = 4;
+            txtPrecioUnitario.Name = "txtPrecioUnitario";
+            txtPrecioUnitario.Size = new Size(84, 31);
+            txtPrecioUnitario.TabIndex = 9;
+            txtPrecioUnitario.TextChanged += textBox1_TextChanged;
+            txtPrecioUnitario.KeyPress += txtPrecioUnitario_KeyPress;
             // 
             // txtProducto
             // 
-            txtProducto.Location = new Point(246, 90);
+            txtProducto.Location = new Point(399, 18);
             txtProducto.Margin = new Padding(4, 5, 4, 5);
+            txtProducto.MaxLength = 20;
             txtProducto.Name = "txtProducto";
             txtProducto.Size = new Size(167, 31);
             txtProducto.TabIndex = 8;
             txtProducto.TextChanged += txtProducto_TextChanged;
             // 
-            // mtbPrecioUnitario
-            // 
-            mtbPrecioUnitario.Enabled = false;
-            mtbPrecioUnitario.Location = new Point(330, 237);
-            mtbPrecioUnitario.Margin = new Padding(4, 5, 4, 5);
-            mtbPrecioUnitario.Mask = "000";
-            mtbPrecioUnitario.Name = "mtbPrecioUnitario";
-            mtbPrecioUnitario.Size = new Size(83, 31);
-            mtbPrecioUnitario.TabIndex = 7;
-            mtbPrecioUnitario.ValidatingType = typeof(int);
-            mtbPrecioUnitario.MaskInputRejected += mtbPrecioUnitario_MaskInputRejected;
-            // 
             // dtpFecha
             // 
-            dtpFecha.Location = new Point(246, 30);
+            dtpFecha.Location = new Point(399, 90);
             dtpFecha.Margin = new Padding(4, 5, 4, 5);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(167, 31);
@@ -146,8 +145,7 @@
             // 
             // nudCantidad
             // 
-            nudCantidad.Enabled = false;
-            nudCantidad.Location = new Point(330, 162);
+            nudCantidad.Location = new Point(482, 162);
             nudCantidad.Margin = new Padding(4, 5, 4, 5);
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(84, 31);
@@ -161,12 +159,12 @@
             panel2.Location = new Point(17, 357);
             panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(451, 130);
+            panel2.Size = new Size(631, 130);
             panel2.TabIndex = 6;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(246, 43);
+            btnSalir.Location = new Point(125, 43);
             btnSalir.Margin = new Padding(4, 5, 4, 5);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(107, 38);
@@ -177,7 +175,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(99, 43);
+            btnRegistrar.Location = new Point(399, 43);
             btnRegistrar.Margin = new Padding(4, 5, 4, 5);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(107, 38);
@@ -189,22 +187,21 @@
             // panel3
             // 
             panel3.Controls.Add(lblResultado);
-            panel3.Location = new Point(17, 500);
+            panel3.Location = new Point(668, 20);
             panel3.Margin = new Padding(4, 5, 4, 5);
             panel3.Name = "panel3";
-            panel3.Size = new Size(451, 315);
+            panel3.Size = new Size(318, 467);
             panel3.TabIndex = 7;
             // 
             // lblResultado
             // 
             lblResultado.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lblResultado.Location = new Point(4, 30);
+            lblResultado.Location = new Point(17, 18);
             lblResultado.Margin = new Padding(4, 0, 4, 0);
             lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(443, 263);
+            lblResultado.Size = new Size(218, 437);
             lblResultado.TabIndex = 0;
             lblResultado.Text = "      \r\n";
-            lblResultado.Click += lblResultado_Click;
             // 
             // frmRegistroCompras
             // 
@@ -212,15 +209,18 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnSalir;
-            ClientSize = new Size(484, 835);
+            ClientSize = new Size(1010, 505);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             Name = "frmRegistroCompras";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro Ventas";
+            Load += frmRegistroCompras_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
@@ -241,9 +241,9 @@
         private Button btnSalir;
         private Button btnRegistrar;
         private DateTimePicker dtpFecha;
-        private MaskedTextBox mtbPrecioUnitario;
         private TextBox txtProducto;
         private Panel panel3;
         private Label lblResultado;
+        private TextBox txtPrecioUnitario;
     }
 }
